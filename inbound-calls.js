@@ -163,6 +163,10 @@ export function registerInboundRoutes(fastify) {
 
             elevenLabsWs.on("close", () => {
               console.log("[DEBUG] ElevenLabs WebSocket disconnected.");
+
+              ws.close();
+              console.log("[DEBUG] Closed Twilio connection due to ElevenLabs disconnect.");
+              
             });
           } catch (error) {
             console.error(
